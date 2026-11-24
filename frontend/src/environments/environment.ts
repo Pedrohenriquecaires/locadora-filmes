@@ -1,4 +1,4 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:5080/api'
+  production: true,
+  apiUrl: 'https://locadora-api-pedro-erg2btarasftczg3.brazilsouth-01.azurewebsites.net/api'
 };
