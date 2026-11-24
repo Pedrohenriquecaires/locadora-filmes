@@ -1,0 +1,11 @@
+bin/
+obj/
+artifacts/
+App_Data/
+*.db
+*.db-shm
+*.db-wal
+.vs/
+.idea/
+*.user
+/.nx

@@ -1,0 +1,103 @@
+### Arquivo de requisições (VS Code "REST Client", Rider/VS HTTP Client)
+@host = http://localhost:5080
+
+### 1) Login (Admin) -> copie o token do retorno para a variável abaixo
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "email": "admin@locadora.com", "senha": "Admin@123" }
+
+###
+@token = COLE_O_TOKEN_AQUI
+
+### Usuário autenticado
+GET {{host}}/api/auth/eu
+Authorization: Bearer {{token}}
+
+### Criar usuário (somente Admin)
+POST {{host}}/api/auth/registrar
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "nome": "Maria Atendente", "email": "maria@locadora.com", "senha": "Senha@123", "perfil": "Atendente" }
+
+### Gêneros
+GET {{host}}/api/generos
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/api/generos
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "nome": "Aventura" }
+
+### Filmes (filtros opcionais: titulo, generoId)
+GET {{host}}/api/filmes?titulo=ma
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/api/filmes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "titulo": "Jurassic Park",
+  "sinopse": "Dinossauros voltam à vida em um parque temático.",
+  "anoLancamento": 1993,
+  "duracaoMinutos": 127,
+  "classificacaoIndicativa": "12",
+  "precoDiaria": 5.5,
+  "quantidadeTotal": 3,
+  "generoId": 1
+}
+
+### Clientes
+GET {{host}}/api/clientes
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/api/clientes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nome": "Diego Rocha",
+  "cpf": "529.982.247-25",
+  "email": "diego.rocha@email.com",
+  "telefone": "(11) 98765-4321",
+  "dataNascimento": "1992-03-15"
+}
+
+### Locações
+GET {{host}}/api/locacoes?status=Ativa
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/api/locacoes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "clienteId": 3, "filmeIds": [1, 5], "diasLocacao": 3 }
+
+### Alterar prazo
+PUT {{host}}/api/locacoes/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "diasLocacao": 7 }
+
+### Devolução
+POST {{host}}/api/locacoes/2/devolucao
+Authorization: Bearer {{token}}
+
+### Remover (somente Admin)
+DELETE {{host}}/api/locacoes/1
+Authorization: Bearer {{token}}
+
+### Teste de validação (deve retornar 400 com a lista de erros)
+POST {{host}}/api/clientes
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "nome": "A", "cpf": "111.111.111-11", "email": "x", "telefone": "1", "dataNascimento": "2015-01-01" }

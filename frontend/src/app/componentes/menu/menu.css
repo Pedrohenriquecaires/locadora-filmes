@@ -1,0 +1,42 @@
+:host { display:block; flex:0 0 244px; width:244px; }
+.menu-lateral {
+  position:sticky; top:0; display:flex; flex-direction:column; width:244px;
+  height:100vh; min-height:100svh; padding:27px 17px 18px;
+  border-right:1px solid rgba(137,220,207,.14);
+  background:linear-gradient(180deg,
+    #397f75 0%,
+    #2d6d65 16%,
+    #1d514b 34%,
+    #102b27 52%,
+    #081512 72%,
+    #050a09 100%);
+  color:#effbf8;
+}
+.logo { display:flex; align-items:center; padding:0 1px 27px; color:#f4fffc; text-decoration:none; }
+.logo-imagem { display:block; width:100%; max-width:207px; height:auto; object-fit:contain; object-position:left center; }
+.nav-grupo { display:flex; flex-direction:column; gap:11px; }
+.nav-legenda { padding:0 11px; color:rgba(239,251,248,.62); font-size:9px; font-weight:750; letter-spacing:.12em; }
+.menu-lateral nav { display:grid; gap:5px; }
+.menu-lateral nav a { display:flex; align-items:center; gap:12px; min-height:42px; padding:0 12px; border:1px solid transparent; border-radius:8px; color:rgba(239,251,248,.82); font-size:12px; font-weight:560; text-decoration:none; transition:background .16s,color .16s,border-color .16s; }
+.menu-lateral nav a:hover { background:rgba(3,18,16,.25); color:#fff; }
+.menu-lateral nav a.ativo { border-color:rgba(135,245,224,.2); background:rgba(111,235,214,.22); color:#d5fff5; box-shadow:inset 2px 0 0 #8af0df; }
+.nav-icone { display:grid; place-items:center; width:18px; font-size:16px; color:#b8f4e9; }
+.menu-rodape { display:grid; gap:8px; margin-top:auto; }
+.usuario-chip { display:flex; align-items:center; gap:10px; padding:13px 8px; margin-bottom:5px; border-top:1px solid rgba(182,239,228,.2); }
+.usuario-avatar { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:#b5f1e5; color:#0b2924; font-size:12px; font-weight:750; }
+.usuario-info { display:flex; min-width:0; flex-direction:column; gap:3px; }
+.usuario-info strong { overflow:hidden; color:#f2fffb; font-size:11px; text-overflow:ellipsis; white-space:nowrap; }
+.usuario-info small { color:rgba(231,250,245,.62); font-size:10px; text-transform:capitalize; }
+.acao-tema,.botao-sair { display:flex; align-items:center; gap:11px; width:100%; min-height:38px; padding:0 11px; border:1px solid transparent; border-radius:8px; background:transparent; color:rgba(239,251,248,.72); font:inherit; font-size:11px; text-align:left; cursor:pointer; }
+.acao-tema:hover,.botao-sair:hover { background:rgba(111,235,214,.1); color:#fff; }
+.acao-tema span,.botao-sair span { width:18px; text-align:center; font-size:15px; }
+@media(max-width:700px) {
+  :host { width:100%; }
+  .menu-lateral { position:relative; width:100%; height:auto; min-height:0; padding:12px 14px; border-right:0; border-bottom:1px solid rgba(137,220,207,.14); background:linear-gradient(90deg,#397f75 0%,#17443e 42%,#07110f 100%); }
+  .logo { padding:0 4px 10px; }
+  .logo-imagem { max-width:180px; }
+  .nav-grupo { gap:6px; }
+  .nav-legenda,.menu-rodape { display:none; }
+  .menu-lateral nav { display:flex; overflow-x:auto; }
+  .menu-lateral nav a { flex:0 0 auto; min-height:36px; padding:0 10px; }
+}

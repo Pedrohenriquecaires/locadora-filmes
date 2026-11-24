@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RollForward>LatestMajor</RollForward>
+  </PropertyGroup>
+</Project>

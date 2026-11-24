@@ -1,0 +1,11 @@
+@if (auth.logado()) {
+  <div class="app-shell">
+    <app-menu />
+    <div class="app-content">
+      <main class="app-main"><router-outlet /></main>
+    </div>
+  </div>
+} @else {
+  <router-outlet />
+}
+<app-avisos />

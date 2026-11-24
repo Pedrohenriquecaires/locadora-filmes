@@ -1,0 +1,83 @@
+.login-fundo {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 28px 18px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(74,181,165,.13), transparent 48%),
+    var(--cor-fundo, #080d0c);
+}
+.login-card {
+  width: min(100%, 420px);
+  padding: 34px;
+  border: 1px solid rgba(137,220,207,.18);
+  border-radius: 16px;
+  background: var(--cor-card, #101917);
+  box-shadow: 0 24px 70px rgba(0,0,0,.32);
+}
+.login-marca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 30px;
+  padding: 12px 8px;
+  width: 100%;
+  border-bottom: 1px solid rgba(137,220,207,.14);
+}
+.login-logo {
+  display: block;
+  width: min(100%, 330px);
+  max-height: 112px;
+  object-fit: contain;
+}
+.login-card h1 {
+  margin: 0;
+  color: var(--cor-texto, #f3faf8);
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: -.03em;
+  text-align: center;
+}
+.login-card .sub {
+  margin: 9px 0 26px;
+  color: var(--cor-texto-secundario, #9aaba6);
+  font-size: 13px;
+  text-align: center;
+}
+.login-card .form { display: grid; gap: 17px; }
+.login-card .campo { display: grid; gap: 7px; }
+.login-card .campo label {
+  color: var(--cor-texto, #e8f2ef);
+  font-size: 12px;
+  font-weight: 650;
+}
+.login-card .campo input {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 13px;
+  border: 1px solid rgba(137,220,207,.22);
+  border-radius: 8px;
+  outline: none;
+  background: rgba(0,0,0,.16);
+  color: var(--cor-texto, #f3faf8);
+  font: inherit;
+}
+.login-card .campo input:focus {
+  border-color: #4ab5a5;
+  box-shadow: 0 0 0 3px rgba(74,181,165,.13);
+}
+.login-card .btn-largo { width: 100%; min-height: 44px; margin-top: 4px; }
+.login-card .alerta-erro {
+  margin: 0 0 16px;
+  padding: 11px 13px;
+  border: 1px solid rgba(239,91,91,.3);
+  border-radius: 8px;
+  background: rgba(239,91,91,.09);
+  color: #ffaaaa;
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  .login-card { padding: 26px 21px; }
+  .login-logo { max-height: 90px; }
+}
