@@ -9,6 +9,7 @@ export interface Filme {
   id?: number;
   titulo: string;
   sinopse: string | null;
+  diretor?: string | null;
   anoLancamento: number;
   duracaoMinutos: number;
   classificacaoIndicativa: string;

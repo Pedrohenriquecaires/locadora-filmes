@@ -53,6 +53,9 @@ import { mensagensDeErro } from '../../utils/erros';
                   <span class="badge">Class. {{ f.classificacaoIndicativa }}</span>
                 </div>
                 <h3>{{ f.titulo }}</h3>
+                @if (f.diretor) {
+                  <div class="filme-info"><span>Dir. {{ f.diretor }}</span></div>
+                }
                 <div class="filme-info">
                   <span>{{ f.anoLancamento }} · {{ f.duracaoMinutos }} min</span>
                 </div>

@@ -41,6 +41,11 @@ import { mensagensDeErro } from '../../utils/erros';
             <input [(ngModel)]="filme.sinopse" name="sinopse" placeholder="Resumo do filme" />
           </div>
 
+          <div class="campo">
+            <label>Diretor (opcional)</label>
+            <input [(ngModel)]="filme.diretor" name="diretor" placeholder="Ex.: Christopher Nolan" />
+          </div>
+
           <div class="grid-2">
             <div class="campo">
               <label>Gênero</label>
@@ -109,6 +114,7 @@ export class FilmeForm implements OnInit {
   filme: Filme = {
     titulo: '',
     sinopse: '',
+    diretor: '',
     anoLancamento: new Date().getFullYear(),
     duracaoMinutos: 90,
     classificacaoIndicativa: 'L',
