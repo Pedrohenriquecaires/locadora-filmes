@@ -9,7 +9,7 @@ public static class Mapeamentos
     public static GeneroResponse ToResponse(this Genero g) => new(g.Id, g.Nome);
 
     public static FilmeResponse ToResponse(this Filme f) => new(
-        f.Id, f.Titulo, f.Sinopse, f.AnoLancamento, f.DuracaoMinutos, f.ClassificacaoIndicativa,
+        f.Id, f.Titulo, f.Sinopse, f.Diretor, f.AnoLancamento, f.DuracaoMinutos, f.ClassificacaoIndicativa,
         f.PrecoDiaria, f.QuantidadeTotal, f.QuantidadeDisponivel, f.GeneroId, f.Genero.Nome);
 
     public static ClienteResponse ToResponse(this Cliente c) => new(

@@ -44,6 +44,7 @@ Content-Type: application/json
 {
   "titulo": "Jurassic Park",
   "sinopse": "Dinossauros voltam à vida em um parque temático.",
+  "diretor": "Steven Spielberg",
   "anoLancamento": 1993,
   "duracaoMinutos": 127,
   "classificacaoIndicativa": "12",

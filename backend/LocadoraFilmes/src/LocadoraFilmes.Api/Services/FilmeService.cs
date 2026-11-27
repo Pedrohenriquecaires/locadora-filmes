@@ -49,6 +49,7 @@ public class FilmeService : IFilmeService
     public async Task<FilmeResponse> CriarAsync(FilmeRequest request, CancellationToken ct = default)
     {
         _validator.Validar(request).LancarSeInvalido();
+        ValidarDiretor(request.Diretor);
 
         var genero = await _db.Generos.FirstOrDefaultAsync(g => g.Id == request.GeneroId, ct)
             ?? throw new ValidacaoException(nameof(request.GeneroId), "Gênero não encontrado.");
@@ -64,6 +65,7 @@ public class FilmeService : IFilmeService
         {
             Titulo = titulo,
             Sinopse = string.IsNullOrWhiteSpace(request.Sinopse) ? null : request.Sinopse.Trim(),
+            Diretor = string.IsNullOrWhiteSpace(request.Diretor) ? null : request.Diretor.Trim(),
             AnoLancamento = request.AnoLancamento,
             DuracaoMinutos = request.DuracaoMinutos,
             ClassificacaoIndicativa = request.ClassificacaoIndicativa!.Trim().ToUpperInvariant(),
@@ -86,6 +88,7 @@ public class FilmeService : IFilmeService
             ?? throw new RecursoNaoEncontradoException($"Filme {id} não encontrado.");
 
         _validator.Validar(request).LancarSeInvalido();
+        ValidarDiretor(request.Diretor);
 
         var genero = await _db.Generos.FirstOrDefaultAsync(g => g.Id == request.GeneroId, ct)
             ?? throw new ValidacaoException(nameof(request.GeneroId), "Gênero não encontrado.");
@@ -106,6 +109,7 @@ public class FilmeService : IFilmeService
 
         filme.Titulo = titulo;
         filme.Sinopse = string.IsNullOrWhiteSpace(request.Sinopse) ? null : request.Sinopse.Trim();
+        filme.Diretor = string.IsNullOrWhiteSpace(request.Diretor) ? null : request.Diretor.Trim();
         filme.AnoLancamento = request.AnoLancamento;
         filme.DuracaoMinutos = request.DuracaoMinutos;
         filme.ClassificacaoIndicativa = request.ClassificacaoIndicativa!.Trim().ToUpperInvariant();
@@ -131,5 +135,16 @@ public class FilmeService : IFilmeService
 
         _db.Filmes.Remove(filme);
         await _db.SaveChangesAsync(ct);
+    }
+
+    /// <summary>Regra da biblioteca LocadoraFilmes.Validation 1.1.0 (ValidadorDiretor).</summary>
+    private static void ValidarDiretor(string? diretor)
+    {
+        if (!ValidadorDiretor.EhValido(diretor))
+        {
+            throw new ValidacaoException(nameof(FilmeRequest.Diretor),
+                $"O diretor deve ter de {ValidadorDiretor.TamanhoMinimo} a {ValidadorDiretor.TamanhoMaximo} caracteres " +
+                "e conter apenas letras, espaços, ponto, apóstrofo ou hífen.");
+        }
     }
 }

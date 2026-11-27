@@ -21,6 +21,7 @@ public sealed record GeneroResponse(int Id, string Nome);
 public sealed record FilmeRequest(
     string? Titulo,
     string? Sinopse,
+    string? Diretor,
     int AnoLancamento,
     int DuracaoMinutos,
     string? ClassificacaoIndicativa,
@@ -32,6 +33,7 @@ public sealed record FilmeResponse(
     int Id,
     string Titulo,
     string? Sinopse,
+    string? Diretor,
     int AnoLancamento,
     int DuracaoMinutos,
     string ClassificacaoIndicativa,
